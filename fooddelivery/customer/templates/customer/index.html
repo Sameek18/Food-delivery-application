@@ -1,17 +1,82 @@
 {% extends 'customer/base.html' %}
 
 {% block content %}
-<div class="container mb-5">
-    <div class="row justify-content-center mt-5">
-        <div class="col-md-8 col-sm-12 offset-md-1 p-4 text-center">
-            <h1>Online Food Delivery Service</h1>
-        </div>
-    </div>
-    <div class="row justify-content-center mt-1">
-        <div class="card col-md-5 col-sm-12 offset-md-1 p-4 text-center">
-            <h2>Place an Order!</h2>
-            <a href="{% url 'order' %}" class="btn btn-outline-primary">Order Now!</a>
-        </div>
-    </div>
-</div>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Satisfy&family=Tajawal&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Satisfy&family=Tajawal:wght@400;700&display=swap');
+    header {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://img.freepik.com/foto-gratis/ensalada-quinua-rucula-pimientos-tomates-pepino-recipiente-sobre-mesa-oscura-comida-sana-dieta-desintoxicacion-concepto-vegetariano-ensalada-tabule-vista-superior-lay-flat_2829-16873.jpg?size=626&ext=jpg);
+        height: 100vh;
+        background-size: cover;
+    
+        background-position: 0vmin;
+    }
+
+    heading{
+        font-size: 40pt;
+        color:white;
+    }
+    .title {
+        position: absolute;
+        top: 50%;
+        left: 20%;
+        transform: translate(-50%, -50%);
+        transition: width 2s
+    }
+    
+    
+    
+    .title h1 {
+        color: white;
+        font-size: 100px;
+        font-family: 'Satisfy', cursive;
+    }
+    .title h3 {
+        margin-right:20pt;
+        color: white;
+        font-size: 90px;
+        font-family: 'Tajawal', sans-serif;
+    }
+    .example_c {
+        margin-top:340pt;
+        margin-left:170pt;
+        top: 50%;
+        left: 20%;
+        color: #494949 !important;
+        font-family: 'Tajawal', sans-serif;
+        font-size:20pt ;
+        text-transform: uppercase;
+        text-decoration: none;
+        background: #f6b93b;
+        
+        padding: 10px;
+        border: 4px solid #494949 !important;
+        display: inline-block;
+        transition: all 0.4s ease 0s;
+        }
+    .example_c:hover {
+        color:black !important;
+        background: #ffffff;
+        border-color: #f6b93b !important;
+        transition: all 0.4s ease 0s;
+        }
+
+    .button_cont{
+        top: 50%;
+        left: 20%;
+
+    }
+    
+    
+    
+</style>
+<header>
+    <div class="title">
+        
+        <h1>Mera's <br>Kitchen </h1>
+    </div>   
+    <div class="button_cont" ><a class="example_c" href="{% url 'order' %}" rel="Place An Order">Order Now!</a></div>
+
+</header>
 {% endblock content %}
