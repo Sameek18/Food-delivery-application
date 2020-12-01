@@ -76,7 +76,12 @@
         
         <h1>Mera's <br>Kitchen </h1>
     </div>   
+    {% if user.is_authenticated %}
     <div class="button_cont" ><a class="example_c" href="{% url 'order' %}" rel="Place An Order">Order Now!</a></div>
+    {% else %}
+    <div class="button_cont" ><a class="example_c" href="/accounts/login" rel="Place An Order">Order Now!</a></div>
+
+    {% endif %}
 
 </header>
 {% endblock content %}
