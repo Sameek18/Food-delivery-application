@@ -40,14 +40,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.sites',
 
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.staticfiles',
+    'crispy_forms',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'django.contrib.admin',
     'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.staticfiles',
 
 ]
 
@@ -95,7 +96,7 @@ EMAIL_USE_TLS = True
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'), os.path.join(BASE_DIR, 'templates', 'account')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
