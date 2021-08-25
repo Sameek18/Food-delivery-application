@@ -1,5 +1,7 @@
 # Food-delivery-application
 
+This is a Food Delivery application made using Django and the database used in SQLite.
+
 ## **How to run?**
 
 ```
