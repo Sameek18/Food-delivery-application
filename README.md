@@ -1,6 +1,6 @@
 # Food-delivery-application
 
-This is a Food Delivery application made using Django and the database used in SQLite.
+This is a Food Delivery application made using Django and the database used is SQLite.For payment, Paypal payment gateway has been integrated into the project.
 
 ## **How to run?**
 
