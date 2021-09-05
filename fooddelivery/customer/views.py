@@ -4,17 +4,17 @@ from django.views import View
 from django.core.mail import send_mail
 from .models import MenuItem, Category, OrderModel
 
-
+#home page
 class Index(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'customer/index.html')
 
-
+#About Page
 class About(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'customer/about.html')
 
-
+#function for placinf order
 class Order(View):
     def get(self, request, *args, **kwargs):
         # get every item from each category
@@ -34,7 +34,7 @@ class Order(View):
 
         # render the template
         return render(request, 'customer/order.html', context)
-
+    #this function provides a 'cart' like functionality where all selected items are placed in list 'items'.
     def post(self, request, *args, **kwargs):
         name = request.POST.get('name')
         email = request.POST.get('email')
@@ -61,7 +61,7 @@ class Order(View):
 
             price = 0
             item_ids = []
-
+        #calculate price of each item
         for item in order_items['items']:
             price += item['price']
             item_ids.append(item['id'])
@@ -96,7 +96,7 @@ class Order(View):
 
         return redirect('order-confirmation', pk=order.pk)
 
-
+#function for return order confirmation page
 class OrderConfirmation(View):
     def get(self, request, pk, *args, **kwargs):
         order = OrderModel.objects.get(pk=pk)
@@ -108,7 +108,7 @@ class OrderConfirmation(View):
         }
 
         return render(request, 'customer/order_confirmation.html', context)
-
+#If payment is received then the order would be marked complete.
     def post(self, request, pk, *args, **kwargs):
         data = json.loads(request.body)
         if data['isPaid']:
@@ -118,7 +118,7 @@ class OrderConfirmation(View):
 
         return redirect('payment-confirmation')
 
-
+#Function for payment confirmation page
 class OrderPayConfirmation(View):
     def get(self, request, pk, *args, **kwargs):
         return render(request, 'customer/order_pay_confirmation.html')
